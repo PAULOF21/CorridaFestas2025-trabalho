@@ -18,21 +18,6 @@
             height: 100%;
             padding: 0;
             margin: 0;
-}
-
-.css_Guias_7,
-.css_Guias_8,
-.KIDS_5,
-.css_Lori_6,
-.css_Referncias_6,
-.css_Partida_3,
-.css_AlternativaDilise_2 {
-    text-shadow:
-      -2px -2px 0 white,
-       2px -2px 0 white,
-      -2px  2px 0 white,
-       2px  2px 0 white;
-	
         }
         </style>
         <title>Corrida das Festas de Loures 2025</title>
@@ -55,7 +40,7 @@
         <script src="data/Percurso_1.js"></script>
         <script src="data/AlternativaDilise_2.js"></script>
         <script src="data/Partida_3.js"></script>
-        <script src="data/InfIniJuv_4.js"></script>
+        <script src="data/BenjaminsB_4.js"></script>
         <script src="data/KIDS_5.js"></script>
         <script src="data/Lori_6.js"></script>
         <script src="data/Referncias_7.js"></script>
@@ -63,7 +48,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[38.82413376410789,-9.16197739936079],[38.825420414391054,-9.15967176163084]]);
+        }).fitBounds([[38.82678775156851,-9.17156763347809],[38.83193402134029,-9.162345082558254]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -323,13 +308,16 @@
         });
         bounds_group.addLayer(layer_Partida_3);
         map.addLayer(layer_Partida_3);
-        function pop_InfIniJuv_4(feature, layer) {
+        function pop_BenjaminsB_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Nome'] !== null ? autolinker.link(String(feature.properties['Nome']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Dist'] !== null ? autolinker.link(String(feature.properties['Dist']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -339,33 +327,33 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_InfIniJuv_4_0() {
+        function style_BenjaminsB_4_0() {
             return {
-                pane: 'pane_InfIniJuv_4',
+                pane: 'pane_BenjaminsB_4',
                 opacity: 1,
-                color: 'rgba(40,247,21,1.0)',
+                color: 'rgba(251,236,21,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 2.0,
+                weight: 3.0,
                 fillOpacity: 0,
-                interactive: false,
+                interactive: true,
             }
         }
-        map.createPane('pane_InfIniJuv_4');
-        map.getPane('pane_InfIniJuv_4').style.zIndex = 404;
-        map.getPane('pane_InfIniJuv_4').style['mix-blend-mode'] = 'normal';
-        var layer_InfIniJuv_4 = new L.geoJson(json_InfIniJuv_4, {
+        map.createPane('pane_BenjaminsB_4');
+        map.getPane('pane_BenjaminsB_4').style.zIndex = 404;
+        map.getPane('pane_BenjaminsB_4').style['mix-blend-mode'] = 'normal';
+        var layer_BenjaminsB_4 = new L.geoJson(json_BenjaminsB_4, {
             attribution: '',
-            interactive: false,
-            dataVar: 'json_InfIniJuv_4',
-            layerName: 'layer_InfIniJuv_4',
-            pane: 'pane_InfIniJuv_4',
-            onEachFeature: pop_InfIniJuv_4,
-            style: style_InfIniJuv_4_0,
+            interactive: true,
+            dataVar: 'json_BenjaminsB_4',
+            layerName: 'layer_BenjaminsB_4',
+            pane: 'pane_BenjaminsB_4',
+            onEachFeature: pop_BenjaminsB_4,
+            style: style_BenjaminsB_4_0,
         });
-        bounds_group.addLayer(layer_InfIniJuv_4);
-        map.addLayer(layer_InfIniJuv_4);
+        bounds_group.addLayer(layer_BenjaminsB_4);
+        map.addLayer(layer_BenjaminsB_4);
         function pop_KIDS_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -572,10 +560,10 @@
         var overlaysTree = [
             {label: '<img src="legend/Guias_8.png" /> Guias', layer: layer_Guias_8},
             {label: '<img src="legend/Referncias_7.png" /> Referências', layer: layer_Referncias_7},
-        {label: '<b>Percursos- KIDS</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/Lori_6.png" /> Lori', layer: layer_Lori_6},
             {label: '<img src="legend/KIDS_5.png" /> KIDS', layer: cluster_KIDS_5},
-            {label: '<img src="legend/InfIniJuv_4.png" /> Inf-Ini-Juv', layer: layer_InfIniJuv_4},]},
+        {label: '<b>Percursos- KIDS</b>',  selectAllCheckbox: true, children: [
+            {label: '<img src="legend/BenjaminsB_4.png" /> Benjamins B', layer: layer_BenjaminsB_4},]},
             {label: 'Partida<br /><table><tr><td style="text-align: center;"><img src="legend/Partida_3_Chegada0.png" /></td><td>Chegada</td></tr><tr><td style="text-align: center;"><img src="legend/Partida_3_Partida1.png" /></td><td>Partida</td></tr></table>', layer: layer_Partida_3},
             {label: '<img src="legend/AlternativaDilise_2.png" /> Alternativa Diálise', layer: layer_AlternativaDilise_2},
             {label: '<img src="legend/Percurso_1.png" /> Percurso', layer: layer_Percurso_1},
@@ -719,15 +707,15 @@
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_AlternativaDilise_2,layer_Partida_3,layer_KIDS_5,layer_Lori_6,layer_Referncias_7,layer_Guias_8]);
+        resetLabels([layer_AlternativaDilise_2,layer_Partida_3,layer_BenjaminsB_4,layer_KIDS_5,layer_Lori_6,layer_Referncias_7,layer_Guias_8]);
         map.on("zoomend", function(){
-            resetLabels([layer_AlternativaDilise_2,layer_Partida_3,layer_KIDS_5,layer_Lori_6,layer_Referncias_7,layer_Guias_8]);
+            resetLabels([layer_AlternativaDilise_2,layer_Partida_3,layer_BenjaminsB_4,layer_KIDS_5,layer_Lori_6,layer_Referncias_7,layer_Guias_8]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_AlternativaDilise_2,layer_Partida_3,layer_KIDS_5,layer_Lori_6,layer_Referncias_7,layer_Guias_8]);
+            resetLabels([layer_AlternativaDilise_2,layer_Partida_3,layer_BenjaminsB_4,layer_KIDS_5,layer_Lori_6,layer_Referncias_7,layer_Guias_8]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_AlternativaDilise_2,layer_Partida_3,layer_KIDS_5,layer_Lori_6,layer_Referncias_7,layer_Guias_8]);
+            resetLabels([layer_AlternativaDilise_2,layer_Partida_3,layer_BenjaminsB_4,layer_KIDS_5,layer_Lori_6,layer_Referncias_7,layer_Guias_8]);
         });
         </script>
     </body>
