@@ -29,6 +29,18 @@ function addLabel(layer, id) {
   if (layer.getTooltip()) {
       var label = layer.getTooltip()._source._tooltip._container;
       if (label) {
+           // Estilo da borda no texto
+    label.style.color = "black";
+    label.style.webkitTextStroke = "1px white"; // Chrome, Safari, Edge
+    label.style.fontWeight = "bold";
+
+    // Fallback para outros browsers (borda simulada com sombras)
+    label.style.textShadow = `
+      -1px -1px 0 white,
+      -1px -1px 0 white,
+      -1px -1px 0 white,
+      -1px -1px 0 white,
+    `;
 
         // We need the bounding rectangle of the label itself
         var rect = label.getBoundingClientRect();
