@@ -754,3 +754,43 @@ function fnc__specialcol_(values, context) {
 function fnc_project_color(values, context) {
     return false;
 };
+
+
+
+function exp_KIDS_5rule0_eval_expression(context) {
+    // Func = 0
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['Func']  == 0);
+    } else {
+        return (feature['Func']  == 0);
+    }
+}
+
+
+function exp_KIDS_5rule1_eval_expression(context) {
+    // Func = 1
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['Func']  == 1);
+    } else {
+        return (feature['Func']  == 1);
+    }
+}
+
+
+function exp_KIDS_5rule2_eval_expression(context) {
+    // Func = 2
+
+    var feature = context.feature;
+    
+    if (feature.properties) {
+        return (feature.properties['Func']  == 2);
+    } else {
+        return (feature['Func']  == 2);
+    }
+}
